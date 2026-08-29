@@ -1,0 +1,71 @@
+[gd_resource type="Theme" format=3 uid="uid://d02f8h5i36b1i"]
+
+[ext_resource type="FontFile" uid="uid://dscms1k05t5sj" path="res://Assets/JetBrainsMono-Regular.ttf" id="1_flg34"]
+[ext_resource type="StyleBox" uid="uid://dkpx6yr3hq3yg" path="res://Assets/Theme/ButtonDefault.tres" id="2_kpqr7"]
+[ext_resource type="StyleBox" uid="uid://dwtguronvtsu5" path="res://Assets/Theme/OptionButtonHover.tres" id="2_y7qb5"]
+[ext_resource type="StyleBox" uid="uid://bklsi3j6r3g7x" path="res://Assets/Theme/OptionButtonDefault.tres" id="3_kpqr7"]
+[ext_resource type="Texture2D" uid="uid://bjb68kl6hfcra" path="res://Assets/KenneyUIPack/Vector/Green/icon_checkmark.svg" id="5_m273m"]
+[ext_resource type="Texture2D" uid="uid://ckkiprb3x0ei7" path="res://Assets/KenneyUIPack/Vector/Yellow/icon_cross.svg" id="6_6bbbh"]
+[ext_resource type="Texture2D" uid="uid://cqx8kletsmesx" path="res://Assets/KenneyUIPack/Vector/Grey/icon_circle.svg" id="7_bmrpo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m273m"]
+bg_color = Color(0.19285086, 0.6446178, 0.83563673, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.035136987, 0.3461195, 0.7057328, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bbbh"]
+bg_color = Color(0, 0.2738333, 0.53, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.035136987, 0.3461195, 0.7057328, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcxgj"]
+bg_color = Color(0.15686275, 0.5921569, 0.77254903, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.035136987, 0.3461195, 0.7057328, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dt5f"]
+bg_color = Color(0.08627451, 0.09411765, 0.12156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csnxt"]
+bg_color = Color(0.12189999, 0.14532167, 0.23, 1)
+
+[resource]
+Button/constants/outline_size = 12
+Button/font_sizes/font_size = 36
+Button/fonts/font = ExtResource("1_flg34")
+Button/styles/focus = SubResource("StyleBoxFlat_m273m")
+Button/styles/hover = SubResource("StyleBoxFlat_m273m")
+Button/styles/normal = ExtResource("2_kpqr7")
+Button/styles/pressed = SubResource("StyleBoxFlat_6bbbh")
+HeaderPanel/base_type = &"Panel"
+HeaderPanel/styles/panel = SubResource("StyleBoxFlat_xcxgj")
+Label/fonts/font = ExtResource("1_flg34")
+LineEdit/fonts/font = ExtResource("1_flg34")
+OptionButton/styles/hover = ExtResource("2_y7qb5")
+OptionButton/styles/hover_mirrored = ExtResource("2_y7qb5")
+OptionButton/styles/hover_pressed = ExtResource("2_y7qb5")
+OptionButton/styles/hover_pressed_mirrored = ExtResource("2_y7qb5")
+OptionButton/styles/normal = ExtResource("3_kpqr7")
+Panel/styles/panel = SubResource("StyleBoxFlat_8dt5f")
+PopupMenu/constants/outline_size = 8
+PopupMenu/font_sizes/font_size = 48
+PopupMenu/icons/radio_checked = ExtResource("5_m273m")
+PopupMenu/icons/radio_checked_disabled = ExtResource("6_6bbbh")
+PopupMenu/icons/radio_unchecked = ExtResource("7_bmrpo")
+PopupMenu/styles/hover = ExtResource("2_y7qb5")
+PopupMenu/styles/panel = ExtResource("3_kpqr7")
+TabBar/fonts/font = ExtResource("1_flg34")
+TextEdit/font_sizes/font_size = 32
+TextEdit/fonts/font = ExtResource("1_flg34")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_csnxt")
+Tree/fonts/font = ExtResource("1_flg34")
+Tree/fonts/title_button_font = ExtResource("1_flg34")

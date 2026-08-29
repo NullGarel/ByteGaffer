@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://xhej3lhdiid4"]
+
+[ext_resource type="Theme" uid="uid://d02f8h5i36b1i" path="res://Assets/Theme/Theme.tres" id="1_edq8m"]
+
+[node name="Main" type="Control" unique_id=97861190]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_edq8m")
+
+[node name="MainPanel" type="Panel" parent="." unique_id=1360449540]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel" unique_id=2080333137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopPanel" type="Panel" parent="MainPanel/VBoxContainer" unique_id=365516640]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_type_variation = &"HeaderPanel"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainPanel/VBoxContainer/TopPanel" unique_id=2126137037]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "ByteGaffer"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EncoderContainer" type="MarginContainer" parent="MainPanel/VBoxContainer" unique_id=1416763895]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="EncodeEdit" type="TextEdit" parent="MainPanel/VBoxContainer/EncoderContainer" unique_id=733367271]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Type here to encode"
+wrap_mode = 1
+autowrap_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/VBoxContainer" unique_id=1544173164]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="ActionsContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/MarginContainer" unique_id=374799739]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer" unique_id=1298655154]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="EncodeBtn" type="Button" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer2" unique_id=1289434644]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Encode"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer" unique_id=373033575]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="OptionButton" type="OptionButton" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer3" unique_id=1200402940]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Base64"
+popup/item_0/id = 0
+popup/item_1/text = "Binary"
+popup/item_1/id = 1
+popup/item_2/text = "Decimal"
+popup/item_2/id = 2
+popup/item_3/text = "UTF8 (Text)"
+popup/item_3/id = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer" unique_id=2037567515]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="DecodeBtn" type="Button" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer" unique_id=971297919]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Decode
+"
+
+[node name="DecoderContainer" type="MarginContainer" parent="MainPanel/VBoxContainer" unique_id=1315000749]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="DecodeEdit" type="TextEdit" parent="MainPanel/VBoxContainer/DecoderContainer" unique_id=665091897]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Type here to decode"
+wrap_mode = 1
+autowrap_mode = 1
