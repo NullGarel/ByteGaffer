@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BinaryTranscoder" format=3 uid="uid://dgfs3e0mykes7"]
+
+[ext_resource type="Script" uid="uid://ba82s53u7ums" path="res://Source/Transcoders/BinaryTranscoder.cs" id="1_tamso"]
+
+[resource]
+script = ExtResource("1_tamso")
+TranscoderId = "Binary"
+TranscoderDisplayName = "Binary"
+metadata/_custom_type_script = "uid://ba82s53u7ums"

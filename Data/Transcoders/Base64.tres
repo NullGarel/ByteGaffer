@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Base64Transcoder" format=3 uid="uid://b76i2rjolnvvk"]
+
+[ext_resource type="Script" uid="uid://4ggb5oqp1e68" path="res://Source/Transcoders/Base64Transcoder.cs" id="1_1p7ry"]
+
+[resource]
+script = ExtResource("1_1p7ry")
+TranscoderId = "Base64"
+TranscoderDisplayName = "Base64"
+metadata/_custom_type_script = "uid://4ggb5oqp1e68"

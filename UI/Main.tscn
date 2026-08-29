@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://d02f8h5i36b1i" path="res://Assets/Theme/Theme.tres" id="1_edq8m"]
 [ext_resource type="Script" uid="uid://btxarnfsrimeu" path="res://Source/UiController.cs" id="2_6i3jr"]
 [ext_resource type="Script" uid="uid://cgcwh1hxq3b6d" path="res://Source/TranscodingManager.cs" id="3_crsyg"]
-[ext_resource type="Resource" uid="uid://bmshri0vacsf8" path="res://Data/Transcoders/Hex.tres" id="4_crsyg"]
+[ext_resource type="Resource" uid="uid://bmshri0vacsf8" path="res://Data/Transcoders/Hex0x.tres" id="4_crsyg"]
 
 [node name="Main" type="Control" unique_id=97861190]
 layout_mode = 3
@@ -93,6 +93,7 @@ theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="OptionButton" type="OptionButton" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer3" unique_id=1200402940]
+custom_maximum_size = Vector2(-1, 196)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer" unique_id=2037567515]

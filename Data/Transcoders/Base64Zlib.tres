@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Base64Transcoder" format=3 uid="uid://ctrtbr5cesryc"]
+
+[ext_resource type="Script" uid="uid://4ggb5oqp1e68" path="res://Source/Transcoders/Base64Transcoder.cs" id="1_8x18i"]
+
+[resource]
+script = ExtResource("1_8x18i")
+UseZlib = true
+TranscoderId = "Base64Zlib"
+TranscoderDisplayName = "Base64 (ZLIB)"
+metadata/_custom_type_script = "uid://4ggb5oqp1e68"
