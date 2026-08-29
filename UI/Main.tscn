@@ -94,16 +94,6 @@ theme_override_constants/margin_bottom = 12
 
 [node name="OptionButton" type="OptionButton" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer3" unique_id=1200402940]
 layout_mode = 2
-selected = 0
-item_count = 4
-popup/item_0/text = "Base64"
-popup/item_0/id = 0
-popup/item_1/text = "Binary"
-popup/item_1/id = 1
-popup/item_2/text = "Decimal"
-popup/item_2/id = 2
-popup/item_3/text = "UTF8 (Text)"
-popup/item_3/id = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer" unique_id=2037567515]
 layout_mode = 2
@@ -134,11 +124,12 @@ placeholder_text = "Type here to decode"
 wrap_mode = 1
 autowrap_mode = 1
 
-[node name="UiController" type="Node" parent="." unique_id=1075127784 node_paths=PackedStringArray("EncodeButton", "DecodeButton", "TranscodingManager")]
+[node name="UiController" type="Node" parent="." unique_id=1075127784 node_paths=PackedStringArray("EncodeButton", "DecodeButton", "TranscodingManager", "TranscodersDisplay")]
 script = ExtResource("2_6i3jr")
 EncodeButton = NodePath("../MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer2/EncodeBtn")
 DecodeButton = NodePath("../MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer/DecodeBtn")
 TranscodingManager = NodePath("../TranscodingManager")
+TranscodersDisplay = NodePath("../MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer3/OptionButton")
 
 [node name="TranscodingManager" type="Node" parent="." unique_id=1805716557 node_paths=PackedStringArray("EncodeInput", "DecodeInput")]
 script = ExtResource("3_crsyg")

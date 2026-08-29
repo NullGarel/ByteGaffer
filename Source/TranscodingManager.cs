@@ -1,5 +1,5 @@
 using Godot;
-using System;
+using Godot.Collections;
 namespace NullGarel.ByteGaffer;
 
 /// <summary>
@@ -9,9 +9,15 @@ namespace NullGarel.ByteGaffer;
 [GlobalClass]
 public partial class TranscodingManager : Node
 {
+    public override void _EnterTree()
+    {
+        LoadTranscoders();
+    }
+
     [Export] public TextEdit EncodeInput { get; set; }
     [Export] public TextEdit DecodeInput { get; set; }
     [Export] public BaseTranscoder CurrentTranscoder { get; set; }
+    [Export] public Array<BaseTranscoder> Transcoders { get; set; } = [];
 
     public void ExecuteEncoding()
     {
@@ -22,4 +28,13 @@ public partial class TranscodingManager : Node
     {
         EncodeInput.Text = CurrentTranscoder.Decode(DecodeInput.Text);
     }
+
+    private void LoadTranscoders()
+    {
+
+        var transcoders = ResUtils.LoadResourcesFromFolder<BaseTranscoder>("res://Data/Transcoders/");
+
+        Transcoders.AddRange(transcoders);
+    }
+
 }
