@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HexTranscoder" format=3 uid="uid://bmshri0vacsf8"]
+
+[ext_resource type="Script" uid="uid://cx2jafnkae5ut" path="res://Source/Transcoders/HexTranscoder.cs" id="1_accx5"]
+
+[resource]
+script = ExtResource("1_accx5")
+UpperCase = true
+Spacing = true
+PrefixWith0x = true
+TranscoderId = "Hex"
+TranscoderDisplayName = "Hex (base16)"
+metadata/_custom_type_script = "uid://cx2jafnkae5ut"

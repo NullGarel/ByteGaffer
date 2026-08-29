@@ -9,9 +9,9 @@ namespace NullGarel.ByteGaffer;
 [GlobalClass]
 public partial class TranscodingManager : Node
 {
-    [Export] private TextEdit EncodeInput { get; set; }
-    [Export] private TextEdit DecodeInput { get; set; }
-    [Export] private BaseTranscoder CurrentTranscoder { get; set; }
+    [Export] public TextEdit EncodeInput { get; set; }
+    [Export] public TextEdit DecodeInput { get; set; }
+    [Export] public BaseTranscoder CurrentTranscoder { get; set; }
 
     public void ExecuteEncoding()
     {

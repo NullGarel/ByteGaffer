@@ -5,8 +5,8 @@ namespace NullGarel.ByteGaffer;
 [GlobalClass]
 public abstract partial class BaseTranscoder : Resource
 {
-    [Export] public virtual string TranscoderId { get; private set; }
-    [Export] public virtual string TranscoderDisplayName { get; private set; }
+    [Export] public virtual string TranscoderId { get; set; }
+    [Export] public virtual string TranscoderDisplayName { get; set; }
 
     public virtual bool IsLossless => true;
     /// <summary>

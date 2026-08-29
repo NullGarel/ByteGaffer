@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_vv0hn")
-EncoderId = "AllCaps"
-EncoderDisplayName = "All Caps"
+TranscoderId = "AllCaps"
+TranscoderDisplayName = "ALL CAPS"
 metadata/_custom_type_script = "uid://cicrhbjkptl6c"

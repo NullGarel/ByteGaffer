@@ -4,9 +4,9 @@ namespace NullGarel.ByteGaffer;
 
 public partial class UiController : Node
 {
-	[Export] private Button EncodeButton { get; set; }
-	[Export] private Button DecodeButton { get; set; }
-	[Export] private TranscodingManager TranscodingManager { get; set; }
+	[Export] public Button EncodeButton { get; set; }
+	[Export] public Button DecodeButton { get; set; }
+	[Export] public TranscodingManager TranscodingManager { get; set; }
 
 
 	public override void _Ready()
