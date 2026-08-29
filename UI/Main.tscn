@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://xhej3lhdiid4"]
 
 [ext_resource type="Theme" uid="uid://d02f8h5i36b1i" path="res://Assets/Theme/Theme.tres" id="1_edq8m"]
+[ext_resource type="Script" uid="uid://btxarnfsrimeu" path="res://Source/UiController.cs" id="2_6i3jr"]
+[ext_resource type="Script" uid="uid://cgcwh1hxq3b6d" path="res://Source/TranscodingManager.cs" id="3_crsyg"]
+[ext_resource type="Resource" uid="uid://qapg7w2mjxs3" path="res://Data/Transcoders/AllCaps.tres" id="4_r7jo0"]
 
 [node name="Main" type="Control" unique_id=97861190]
 layout_mode = 3
@@ -130,3 +133,16 @@ size_flags_vertical = 3
 placeholder_text = "Type here to decode"
 wrap_mode = 1
 autowrap_mode = 1
+
+[node name="UiController" type="Node" parent="." unique_id=1075127784 node_paths=PackedStringArray("EncodeButton", "DecodeButton", "TranscodingManager")]
+script = ExtResource("2_6i3jr")
+EncodeButton = NodePath("../MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer2/EncodeBtn")
+DecodeButton = NodePath("../MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer/DecodeBtn")
+TranscodingManager = NodePath("../TranscodingManager")
+
+[node name="TranscodingManager" type="Node" parent="." unique_id=1805716557 node_paths=PackedStringArray("EncodeInput", "DecodeInput")]
+script = ExtResource("3_crsyg")
+EncodeInput = NodePath("../MainPanel/VBoxContainer/EncoderContainer/EncodeEdit")
+DecodeInput = NodePath("../MainPanel/VBoxContainer/DecoderContainer/DecodeEdit")
+CurrentTranscoder = ExtResource("4_r7jo0")
+metadata/_custom_type_script = "uid://cgcwh1hxq3b6d"

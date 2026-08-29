@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AllCapsTranscoder" format=3 uid="uid://qapg7w2mjxs3"]
+
+[ext_resource type="Script" uid="uid://cicrhbjkptl6c" path="res://Source/Transcoders/AllCapsTranscoder.cs" id="1_vv0hn"]
+
+[resource]
+script = ExtResource("1_vv0hn")
+EncoderId = "AllCaps"
+EncoderDisplayName = "All Caps"
+metadata/_custom_type_script = "uid://cicrhbjkptl6c"
