@@ -8,7 +8,7 @@ public partial class Base64Transcoder : BaseTranscoder
 {
     [Export] public bool UseZlib { get; set; } = false;
 
-    public override bool IsLossless => false;
+    public override bool IsLossless => true;
 
     public override string Encode(string input)
     {

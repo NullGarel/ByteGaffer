@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MorseCodeTranscoder" format=3 uid="uid://ral13bwpbm7b"]
+
+[ext_resource type="Script" uid="uid://dqeke5tfhh3t7" path="res://Source/Transcoders/MorseCodeTranscoder.cs" id="1_w8lyj"]
+
+[resource]
+script = ExtResource("1_w8lyj")
+TranscoderId = "MorseCode"
+TranscoderDisplayName = "Morse Code"
+metadata/_custom_type_script = "uid://dqeke5tfhh3t7"

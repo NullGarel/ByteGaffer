@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://xhej3lhdiid4"]
 
-[ext_resource type="Theme" uid="uid://d02f8h5i36b1i" path="res://Assets/Theme/Theme.tres" id="1_edq8m"]
 [ext_resource type="Script" uid="uid://btxarnfsrimeu" path="res://Source/UiController.cs" id="2_6i3jr"]
 [ext_resource type="Script" uid="uid://cgcwh1hxq3b6d" path="res://Source/TranscodingManager.cs" id="3_crsyg"]
 [ext_resource type="Resource" uid="uid://bmshri0vacsf8" path="res://Data/Transcoders/Hex0x.tres" id="4_crsyg"]
@@ -12,7 +11,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_edq8m")
 
 [node name="MainPanel" type="Panel" parent="." unique_id=1360449540]
 layout_mode = 1

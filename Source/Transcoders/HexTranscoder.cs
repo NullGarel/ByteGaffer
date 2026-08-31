@@ -7,7 +7,7 @@ namespace NullGarel.ByteGaffer;
 [GlobalClass]
 public partial class HexTranscoder : BaseTranscoder
 {
-    public override bool IsLossless => false;
+    public override bool IsLossless => true;
 
     [Export] public bool UpperCase { get; set; } = false;
     [Export] public bool Spacing { get; set; } = false;
