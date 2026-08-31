@@ -6,5 +6,5 @@
 script = ExtResource("1_accx5")
 UpperCase = true
 TranscoderId = "Hex"
-TranscoderDisplayName = "Hexadecimal (no spaces)"
+TranscoderDisplayName = "Hex"
 metadata/_custom_type_script = "uid://cx2jafnkae5ut"

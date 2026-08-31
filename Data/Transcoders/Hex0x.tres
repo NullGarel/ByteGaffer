@@ -8,5 +8,5 @@ UpperCase = true
 Spacing = true
 PrefixWith0x = true
 TranscoderId = "Hex0x"
-TranscoderDisplayName = "Hexadecimal (0x)"
+TranscoderDisplayName = "Hex (0x)"
 metadata/_custom_type_script = "uid://cx2jafnkae5ut"

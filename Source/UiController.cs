@@ -24,7 +24,7 @@ public partial class UiController : Node
 		DecodeButton.Pressed += OnDecodePressed;
 		TranscodersDisplay.ItemSelected += id =>
 		{
-			TranscodingManager.CurrentTranscoder = TranscodingManager.Transcoders.FirstOrDefault((tc) => tc.TranscoderId == (string)TranscodersDisplay.GetItemMetadata((int)id));
+			TranscodingManager.SetTranscoderById((string)TranscodersDisplay.GetItemMetadata((int)id));
 		};
 	}
 
