@@ -46,7 +46,16 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EncoderContainer" type="MarginContainer" parent="MainPanel/VBoxContainer" unique_id=1416763895]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer" unique_id=13549871]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TranscoderUI" type="VBoxContainer" parent="MainPanel/VBoxContainer/HBoxContainer" unique_id=2069818971]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EncoderContainer" type="MarginContainer" parent="MainPanel/VBoxContainer/HBoxContainer/TranscoderUI" unique_id=1416763895]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 24
@@ -54,35 +63,22 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="EncodeEdit" type="TextEdit" parent="MainPanel/VBoxContainer/EncoderContainer" unique_id=733367271]
+[node name="EncodeEdit" type="TextEdit" parent="MainPanel/VBoxContainer/HBoxContainer/TranscoderUI/EncoderContainer" unique_id=733367271]
 layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "Type here to encode"
 wrap_mode = 1
 autowrap_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MainPanel/VBoxContainer" unique_id=1544173164]
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/VBoxContainer/HBoxContainer/TranscoderUI" unique_id=1544173164]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="ActionsContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/MarginContainer" unique_id=374799739]
+[node name="ActionsContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/HBoxContainer/TranscoderUI/MarginContainer" unique_id=374799739]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer" unique_id=1298655154]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-
-[node name="EncodeBtn" type="Button" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer2" unique_id=1289434644]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Encode"
-
-[node name="MarginContainer3" type="MarginContainer" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer" unique_id=373033575]
+[node name="MarginContainer3" type="MarginContainer" parent="MainPanel/VBoxContainer/HBoxContainer/TranscoderUI/MarginContainer/ActionsContainer" unique_id=373033575]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 12
@@ -90,26 +86,12 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="OptionButton" type="OptionButton" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer3" unique_id=1200402940]
+[node name="OptionButton" type="OptionButton" parent="MainPanel/VBoxContainer/HBoxContainer/TranscoderUI/MarginContainer/ActionsContainer/MarginContainer3" unique_id=1200402940]
 custom_maximum_size = Vector2(-1, 196)
 layout_mode = 2
 fit_to_longest_item = false
 
-[node name="MarginContainer" type="MarginContainer" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer" unique_id=2037567515]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-
-[node name="DecodeBtn" type="Button" parent="MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer" unique_id=971297919]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Decode
-"
-
-[node name="DecoderContainer" type="MarginContainer" parent="MainPanel/VBoxContainer" unique_id=1315000749]
+[node name="DecoderContainer" type="MarginContainer" parent="MainPanel/VBoxContainer/HBoxContainer/TranscoderUI" unique_id=1315000749]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 24
@@ -117,23 +99,21 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="DecodeEdit" type="TextEdit" parent="MainPanel/VBoxContainer/DecoderContainer" unique_id=665091897]
+[node name="DecodeEdit" type="TextEdit" parent="MainPanel/VBoxContainer/HBoxContainer/TranscoderUI/DecoderContainer" unique_id=665091897]
 layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "Type here to decode"
 wrap_mode = 1
 autowrap_mode = 1
 
-[node name="UiController" type="Node" parent="." unique_id=1075127784 node_paths=PackedStringArray("EncodeButton", "DecodeButton", "TranscodingManager", "TranscodersDisplay")]
+[node name="UiController" type="Node" parent="." unique_id=1075127784 node_paths=PackedStringArray("TranscodingManager", "TranscodersDisplay", "_encodeInput", "_decodeInput")]
 script = ExtResource("2_6i3jr")
-EncodeButton = NodePath("../MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer2/EncodeBtn")
-DecodeButton = NodePath("../MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer/DecodeBtn")
 TranscodingManager = NodePath("../TranscodingManager")
-TranscodersDisplay = NodePath("../MainPanel/VBoxContainer/MarginContainer/ActionsContainer/MarginContainer3/OptionButton")
+TranscodersDisplay = NodePath("../MainPanel/VBoxContainer/HBoxContainer/TranscoderUI/MarginContainer/ActionsContainer/MarginContainer3/OptionButton")
+_encodeInput = NodePath("../MainPanel/VBoxContainer/HBoxContainer/TranscoderUI/EncoderContainer/EncodeEdit")
+_decodeInput = NodePath("../MainPanel/VBoxContainer/HBoxContainer/TranscoderUI/DecoderContainer/DecodeEdit")
 
-[node name="TranscodingManager" type="Node" parent="." unique_id=1805716557 node_paths=PackedStringArray("EncodeInput", "DecodeInput")]
+[node name="TranscodingManager" type="Node" parent="." unique_id=1805716557]
 script = ExtResource("3_crsyg")
-EncodeInput = NodePath("../MainPanel/VBoxContainer/EncoderContainer/EncodeEdit")
-DecodeInput = NodePath("../MainPanel/VBoxContainer/DecoderContainer/DecodeEdit")
 CurrentTranscoder = ExtResource("4_crsyg")
 metadata/_custom_type_script = "uid://cgcwh1hxq3b6d"

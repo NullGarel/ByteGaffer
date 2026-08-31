@@ -16,8 +16,7 @@ public partial class TranscodingManager : Node
         LoadTranscoders();
     }
 
-    [Export] public TextEdit EncodeInput { get; set; }
-    [Export] public TextEdit DecodeInput { get; set; }
+
     private BaseTranscoder _currentTranscoder;
     [Export]
     public BaseTranscoder CurrentTranscoder
@@ -32,19 +31,32 @@ public partial class TranscodingManager : Node
     [Export] public Array<BaseTranscoder> Transcoders { get; set; } = [];
     public event Action<string> TranscoderChanged;
 
-    public void ExecuteEncoding()
+    public void ExecuteEncoding(ref TextEdit encodeInput, ref TextEdit decodeInput)
     {
-        DecodeInput.Text = _currentTranscoder.Encode(EncodeInput.Text);
+        try
+        {
+            decodeInput.Text = _currentTranscoder.Encode(encodeInput.Text);
+        }
+        catch (Exception)
+        {
+            decodeInput.Text = "...";
+        }
     }
 
-    public void ExecuteDecoding()
+    public void ExecuteDecoding(ref TextEdit encodeInput, ref TextEdit decodeInput)
     {
-        EncodeInput.Text = _currentTranscoder.Decode(DecodeInput.Text);
+        try
+        {
+            encodeInput.Text = _currentTranscoder.Decode(decodeInput.Text);
+        }
+        catch (Exception)
+        {
+            encodeInput.Text = "...";
+        }
     }
 
     private void LoadTranscoders()
     {
-
         var transcoders = ResUtils.LoadResourcesFromFolder<BaseTranscoder>("res://Data/Transcoders/");
 
         Transcoders.AddRange(transcoders);

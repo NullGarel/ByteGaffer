@@ -5,11 +5,10 @@ namespace NullGarel.ByteGaffer;
 
 public partial class UiController : Node
 {
-	[Export] public Button EncodeButton { get; set; }
-	[Export] public Button DecodeButton { get; set; }
 	[Export] public TranscodingManager TranscodingManager { get; set; }
 	[Export] public OptionButton TranscodersDisplay { get; set; }
-
+	[Export] private TextEdit _encodeInput;
+	[Export] private TextEdit _decodeInput;
 
 	public override void _Ready()
 	{
@@ -20,12 +19,15 @@ public partial class UiController : Node
 
 	private void ConnectUiSignals()
 	{
-		EncodeButton.Pressed += OnEncodePressed;
-		DecodeButton.Pressed += OnDecodePressed;
 		TranscodersDisplay.ItemSelected += id =>
 		{
 			TranscodingManager.SetTranscoderById((string)TranscodersDisplay.GetItemMetadata((int)id));
 		};
+
+		_encodeInput.TextChanged += OnEncodePressed;
+		_decodeInput.TextChanged += OnDecodePressed;
+		//encoding is the default one, might change tho.
+		TranscodersDisplay.ItemSelected += (_) => OnEncodePressed();
 	}
 
 	private void PopulateTranscodersDisplay()
@@ -43,12 +45,12 @@ public partial class UiController : Node
 
 	private void OnDecodePressed()
 	{
-		TranscodingManager.ExecuteDecoding();
+		TranscodingManager.ExecuteDecoding(ref _encodeInput, ref _decodeInput);
 	}
 
 	private void OnEncodePressed()
 	{
-		TranscodingManager.ExecuteEncoding();
+		TranscodingManager.ExecuteEncoding(ref _encodeInput, ref _decodeInput);
 	}
 }
 

@@ -14,8 +14,10 @@ public partial class MorseCodeTranscoder : BaseTranscoder
         {'a', ".-"},
         {'b', "-..."},
         {'c', "-.-."},
+        {'ç', "-.-.."},
         {'d', "-.."},
         {'e', "."},
+        {'é', "..-.."},
         {'f', "..-."},
         {'g', "--."},
         {'h', "...."},
@@ -37,6 +39,7 @@ public partial class MorseCodeTranscoder : BaseTranscoder
         {'x', "-..-"},
         {'y', "-.--"},
         {'z', "--.."},
+
         {'1', ".----"},
         {'2', "..---"},
         {'3', "...--"},
@@ -47,9 +50,41 @@ public partial class MorseCodeTranscoder : BaseTranscoder
         {'8', "---.."},
         {'9', "----."},
         {'0', "-----"},
+
+        {'.', ".-.-.-"},
+        {',', "--..--"},
+        {'?', "..--.."},
+        {'\'', ".----."},
+        {'!', "-.-.--"},
+        {'/', "-..-."},
+        {'(', "-.--."},
+        {')', "-.--.-"},
+        {'&', ".-..."},
+        {':', "---..."},
+        {';', "-.-.-."},
+        {'=', "-...-"},
+        {'+', ".-.-."},
+        {'-', "-....-"},
+        {'_', "..--.-"},
+        {'"', ".-..-."},
+        {'$', "...-..-"},
+        {'@', ".--.-."},
+
         {' ', "/"}
     };
 
+    private readonly Dictionary<string, string> _prosigns = new()
+    {
+        {"[CQ]", "-.-.--.-"},
+        {"[SOS]", "...---..."},
+        {"[AR]", ".-.-."},
+        {"[SK]", "...-.-"},
+        {"[BT]", "-...-"},
+        {"[HH]", "........"},
+        {"[KN]", "-.--."}
+    };
+
+    private Dictionary<string, string> _reverseProsigns;
     private Dictionary<string, char> _reverseMorse;
 
     public MorseCodeTranscoder()
@@ -59,19 +94,54 @@ public partial class MorseCodeTranscoder : BaseTranscoder
         {
             _reverseMorse[kvp.Value] = kvp.Key;
         }
+
+        _reverseProsigns = [];
+        foreach (var kvp in _prosigns)
+        {
+            _reverseProsigns[kvp.Value] = kvp.Key;
+        }
     }
 
     public override string Encode(string input)
     {
+        if (string.IsNullOrEmpty(input))
+            return string.Empty;
+
+        string lowerInput = input.ToLower();
         StringBuilder sb = new();
-        foreach (char c in input.ToLower())
+
+        int i = 0;
+        while (i < lowerInput.Length)
         {
-            if (_morse.TryGetValue(c, out string code))
+            bool matchedProsign = false;
+
+            if (lowerInput[i] == '[')
             {
-                sb.Append(code);
-                sb.Append(" ");
+                foreach (var kvp in _prosigns)
+                {
+                    if (lowerInput.Substring(i).StartsWith(kvp.Key))
+                    {
+                        sb.Append(kvp.Value);
+                        sb.Append(" ");
+                        i += kvp.Key.Length;
+                        matchedProsign = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!matchedProsign)
+            {
+                char c = lowerInput[i];
+                if (_morse.TryGetValue(c, out string code))
+                {
+                    sb.Append(code);
+                    sb.Append(" ");
+                }
+                i++;
             }
         }
+
         return sb.ToString().TrimEnd();
     }
 
@@ -90,7 +160,11 @@ public partial class MorseCodeTranscoder : BaseTranscoder
 
             foreach (string letter in letters)
             {
-                if (_reverseMorse.TryGetValue(letter, out char c))
+                if (_reverseProsigns.TryGetValue(letter, out string prosign))
+                {
+                    sb.Append(prosign);
+                }
+                else if (_reverseMorse.TryGetValue(letter, out char c))
                 {
                     sb.Append(c);
                 }
